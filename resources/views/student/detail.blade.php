@@ -1,11 +1,19 @@
+<!-- resources/views/student/detail.blade.php -->
+
 @extends('layouts.main')
 
 @section('container')
-    {{$student->nis}} <br>
-    {{$student->nama}} <br>
-    {{$student->tanggal_lahir}} <br>
-    {{$student->kelas}} <br>
-    {{$student->alamat}} <br>
-
-    <a href="/student/all">back</a>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Student Detail</h1>
+                <p class="card-text"><strong>NIS:</strong> {{$student->nis}}</p>
+                <p class="card-text"><strong>Nama:</strong> {{$student->nama}}</p>
+                <p class="card-text"><strong>Tanggal Lahir:</strong> {{$student->tanggal_lahir}}</p>
+                <p class="card-text"><strong>Kelas:</strong> {{$student->kelas}}</p>
+                <p class="card-text"><strong>Alamat:</strong> {{$student->alamat}}</p>
+                <a href="/student/all" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
 @endsection
