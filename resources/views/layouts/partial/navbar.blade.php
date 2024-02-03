@@ -8,6 +8,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
             <a class="nav-link" href="about">about</a>
             <a class="nav-link" href="/student/all">students</a>
+            <a class="nav-link" href="/kelas/all">kelas</a>
         </div>
         </div>
     </div>
