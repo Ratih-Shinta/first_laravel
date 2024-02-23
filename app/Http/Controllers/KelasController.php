@@ -42,7 +42,7 @@ class KelasController extends Controller
 
         $result = Kelas::create($validatedData);
         if ($result) {
-            return redirect('/kelas/all')->with('success', 'Data Kelas added successfully');
+            return redirect('/dashboard/kelas')->with('success', 'Data Kelas added successfully');
         }
     }
 
@@ -59,9 +59,9 @@ class KelasController extends Controller
         $kelas = Kelas::find($kelas);
         if ($kelas) {
         $kelas->delete();
-        return redirect('/kelas/all')->with('success', 'Data kelas berhasil dihapus.');
+        return redirect('/dashboard/kelas')->with('success', 'Data kelas berhasil dihapus.');
         } else {
-        return redirect('/kelas/all')->with('error', 'Kelas tidak ditemukan.');
+        return redirect('/dashboard/kelas')->with('error', 'Kelas tidak ditemukan.');
         }
     }
 
@@ -74,7 +74,7 @@ class KelasController extends Controller
             'kelas' => $request->kelas,
         ]);
 
-        return redirect('/kelas/all')->with('success', 'Data kelas berhasil diperbarui.');
+        return redirect('/dashboard/kelas')->with('success', 'Data kelas berhasil diperbarui.');
         }
     }
 }

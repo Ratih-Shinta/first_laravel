@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('dashboard.layouts.main')
 
 @section('container')
   <h1>ini adalah halaman edit</h1>
@@ -18,13 +18,24 @@
     <label for="tanggal_lahir">tanggal lahir:</label>
     <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" required value="{{ old('tanggal_lahir', $student->tanggal_lahir) }}">
 
-  <div class="form-group">
+    <div class="form-group">
+      <label for="kelas">Kelas:</label>
+      <select class="form-select" name="kelas_id" id="">
+          @foreach($kelas as $kelasItem)
+              <option value="{{ $kelasItem->id }}" {{ $student->kelas_id == $kelasItem->id ? 'selected' : '' }}>
+                  {{ $kelasItem->kelas }}
+              </option>
+          @endforeach
+      </select>
+  </div>
+
+  {{-- <div class="form-group">
     <label for="kelas">kelas:</label>
-    <input type="text" name="kelas" id="kelas" class="form-control" required value="{{ old('kelas', $student->kelas) }}">
+    <input type="text" name="kelas" id="kelas" class="form-control" required value="{{ old('kelas', $student->kelas) }}"> --}}
 
   <div class="form-group">
     <label for="alamat">alamat:</label>
     <input type="text" name="alamat" id="alamat" class="form-control" required value="{{ old('alamat', $student->alamat) }}">
-
+<br>
   <button type="submit" class="btn btn-success">Edit</button>
 @endsection

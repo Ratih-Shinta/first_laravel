@@ -22,14 +22,14 @@ class Student extends Model
         return $this->belongsTo(Kelas::class);
     }
 
-    public static function rules()
-    {
-        return [
-            'nis' => 'required|string|max:255',
-            'nama' => 'required|string|max:255',
-            'tanggal_lahir' => 'required|date',
-            'kelas_id' => 'required|string|max:255',
-            'alamat' => 'required|string|max:255',
-        ];
-    }
+    // public static function rules()
+    // {
+    //     return [
+    //         'nis' => 'required|string|max:255',
+    //         'nama' => 'required|string|max:255',
+    //         'tanggal_lahir' => 'required|date',
+    //         'kelas_id' => 'required|string|max:255',
+    //         'alamat' => 'required|string|max:255',
+    //     ];
+    // }
 }

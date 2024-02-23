@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('dashboard.layouts.main')
 
 @section('container')
   <h1>ini adalah halaman edit kelas</h1>
@@ -15,7 +15,7 @@
   <div class="form-group">
     <label for="kelas">kelas:</label>
     <input type="text" name="kelas" id="kelas" class="form-control" required value="{{ old('kelas', $kelas->kelas) }}">
-
+<br>
   <button type="submit" class="btn btn-success" onclick="confirmEdit()">Edit</button>
   </form>
   

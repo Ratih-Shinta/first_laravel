@@ -48,7 +48,7 @@ class StudentsController extends Controller
 
         $result = Student::create($validatedData);
         if ($result) {
-            return redirect('/student/all')->with('success', 'Data Student added successfully');
+            return redirect('/dashboard/students')->with('success', 'Data Student added successfully');
         }
     }
 
@@ -65,19 +65,19 @@ class StudentsController extends Controller
     public function destroy(Student $student)
     {
         $student->delete();
-        return redirect()->route('students.all')->with('success', 'Data siswa berhasil dihapus.');
+        return redirect()->route('dashboard.students')->with('success', 'Data siswa berhasil dihapus.');
     }
 
     public function update(Request $request, $id)
     {
         // Lakukan validasi data
-        $request->validate([
-            'nis' => 'required|string|max:255',
-            'nama' => 'required|string|max:255',
-            'tanggal_lahir' => 'required|date',
-            'kelas_id' => 'required|string|max:255',
-            'alamat' => 'required|string|max:255',
-        ]);
+        // $request->validate([
+        //     'nis' => 'required|string|max:255',
+        //     'nama' => 'required|string|max:255',
+        //     'tanggal_lahir' => 'required|date',
+        //     'kelas_id' => 'required|string|max:255',
+        //     'alamat' => 'required|string|max:255',
+        // ]);
 
         // Lakukan update data
         $student = Student::find($id);
@@ -86,14 +86,14 @@ class StudentsController extends Controller
                 'nis' => $request->input('nis'),
                 'nama' => $request->input('nama'),
                 'tanggal_lahir' => $request->input('tanggal_lahir'),
-                'kelas' => $request->input('kelas'),
+                'kelas_id' => $request->input('kelas_id'),
                 'alamat' => $request->input('alamat'),
             ]);
 
             // Setelah update selesai, tambahkan pesan sukses ke dalam session
-            return redirect()->route('students.all')->with('success', 'Data Siswa telah diperbarui.');
+            return redirect()->route('dashboard.students')->with('success', 'Data Siswa telah diperbarui.');
         } else {
-            return redirect()->route('students.all')->with('error', 'Data Siswa tidak ditemukan.');
+            return redirect()->route('dashboard.students')->with('error', 'Data Siswa tidak ditemukan.');
         }
     }
 }

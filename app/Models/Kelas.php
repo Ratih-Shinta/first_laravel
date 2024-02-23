@@ -10,15 +10,14 @@ class Kelas extends Model
     use HasFactory;
 
     protected $fillable = [
-        'no',
         'kelas'
     ];
 
-    public static function rules()
-    {
-        return [
-            'no' => 'required|string|max:255',
-            'kelas' => 'required|string|max:255',
-        ];
-    }
+    // public static function rules()
+    // {
+    //     return [
+    //         'no' => 'required|string|max:255',
+    //         'kelas' => 'required|string|max:255',
+    //     ];
+    // }
 }

@@ -5,7 +5,9 @@ use App\Models\Students;
 use App\Http\Controllers\StudentsController;
 use App\Models\Kelas;
 use App\Http\Controllers\KelasController;
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,3 +95,14 @@ Route::group(["prefix" => "/kelas"], function () {
     Route::post('/update/{kelas}', [KelasController::class, 'update'])->name('kelas.update');
     Route::patch('/update/{kelas}', [KelasController::class, 'update'])->name('kelas.update');
 });
+
+Route::get('/login/all', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register/all', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/students', [DashboardController::class, 'students'])->name('dashboard.students')->middleware('auth');
+Route::get('/dashboard/kelas', [DashboardController::class, 'kelas'])->middleware('auth');
